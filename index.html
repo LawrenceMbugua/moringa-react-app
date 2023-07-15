@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+
+        <div class="carBody">
+           
+          <div class="siren">
+            <div class="left leftSiren"></div>
+            <div class="right rightSiren"></div>
+          </div>
+          
+            <div class="windScreen"> 
+                <div class="innerWindScreenFrame"></div>
+            </div>
+
+            <div class="bonnet">
+                <div class="leftHeadlight headlights"></div>
+                    <div class="radiator">
+                        <div></div>
+                        <div></div>
+                    </div>
+                <div class="rightHeadlight headlights"></div>
+            </div>
+            
+        </div>
+
+        <div class="wheels">
+            <div class="leftWheel"></div>
+            <div class="rightWheel"></div>
+        </div>
+
+
+    </div>
+  
+  
+  <div class="buttons">
+    <button onclick="switchLights()">Lights</button>
+    <button onclick="hazardLights()">Hazard</button>
+    <button onclick="sirenOn()">Siren</button>
+    
+    <input class="colorInput" onchange="changeColor()" type="color">
+    
+    <select onchange="speed()" class="speedInput">
+      <option value="5s">×-3</option>
+      <option value="4s">×-2</option>
+      <option value="3s">×-1</option>
+      <option selected="true" value="2s">0</option>
+      <option value="1.5s">×1</option>
+      <option value="1s">×2</option>
+      <option value="0.5s">×3</option>
+    </select>
+    
+    <input class="shape" onchange="changeShape()" type="range" min="400" max="500">
+    
+ 
+  </div>
+  
+  <script>
+  
+ let headlights = document.querySelectorAll(".headlights")
+ 
+ let leftHeadlight = document.querySelector(".leftHeadlight")
+  
+ let rightHeadlight = document.getElementsByClassName("rightHeadlight")[0]
+  
+ let bonnet = document.getElementsByClassName("bonnet")[0]
+  
+ let shape =  document.getElementsByClassName("shape")[0]
+  
+ let leftSiren =  document.querySelector(".leftSiren")
+ let rightSiren =  document.querySelector(".rightSiren")
+ let input = document.querySelector(".colorInput")
+ //let bonnet = document.querySelector(".bonnet")
+ let carBody = document.querySelector(".carBody")
+ let speedInput = document.querySelector(".speedInput")
+  
+// let headlights = document.querySelectorAll(".headlights")
+  
+  
+  let switchLights = () => {
+    leftHeadlight.classList.toggle("headlightsOn")
+    rightHeadlight.classList.toggle("headlightsOn")
+  }
+  
+  
+  let sirenOn = () => {
+    leftSiren.classList.toggle("leftSirenOn")
+    rightSiren.classList.toggle("rightSirenOn")
+  }
+  
+  
+  let changeColor = () => {
+    let colors = ['red', 'orange', 'black']
+    
+    console.log(input.value)
+    
+    bonnet.style.backgroundColor = input.value
+  }
+  
+  
+  let speed = () => {
+    console.log(speedInput.value)
+    carBody.style.animationDuration = speedInput.value
+  }
+  
+  let hazardLights = () => {
+    
+    for (h of headlights) {
+      h.classList.toggle("hazardLights")
+    }
+    
+    //document.classList.toggle("hazardLights")
+  }
+  
+  
+  let changeShape = () => {
+    //console.log(  shape.value  )
+    bonnet.style.width = shape.value + "px"
+  }
+  
+  
+  </script>
+</body>
+</html>

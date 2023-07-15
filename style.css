@@ -1,0 +1,325 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+  background: greenyellow
+}
+
+.container {
+    margin: 20% auto;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    
+}
+
+.siren {
+  width: 200px;
+  height: 40px;
+  display: flex;
+  
+}
+
+.siren .left, .right {
+  width: 50%;
+  height: 18px;
+  border-radius: 20px;
+  margin: 10px
+  
+}
+
+.leftSirenOn {
+  background: blue;
+  animation: leftSirenKeyframes .5s infinite
+  
+}
+
+.rightSirenOn {
+  background: red;
+  animation: rightSirenKeyframes .5s infinite;
+  
+}
+
+.carBody {
+
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto
+}
+
+.windScreen {
+    width: 300px;
+    height: 100px;
+    border: 1px solid;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+    background-color: rgb(36, 31, 31);
+}
+
+.windScreen .innerWindScreenFrame {
+    width: 290px;
+    height: 85px;
+    background: white;
+    border: 1px solid black;
+    margin: 8px auto;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.bonnet {
+    width: 450px;
+    height: 100px;
+    border: 1px solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    z-index: 2;
+    position: relative;
+    background: rgb(19, 16, 7);
+
+}
+
+
+
+.bonnet .headlightsOn {
+  
+  box-shadow: 2px 3px 100px 70px orange;
+  border-radius: 5px;
+  background-color: white;
+  
+  
+}
+
+.bonnet .leftHeadlight {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    margin: 10px;
+    border: 1px solid;
+    border: 1px solid white
+}
+
+
+
+
+.bonnet .rightHeadlight {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    margin: 10px;
+    border: 1px solid white
+}
+
+
+.hazardLights {
+  animation: headlightsFlicker 1.5s infinite
+}
+
+
+.bonnet .radiator {
+    border: 1px solid grey;
+    background: #cccccc;
+    width: 300px;
+    height: 40px;
+  border-radius: 5px;
+    border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.bonnet .radiator div {
+    width: 280px;
+    height: 1px;
+    background: grey;
+    margin: 5px;
+    border: none;
+    border-radius: 20px;
+}
+
+
+.wheels {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    min-width: 400px;
+    position: relative;
+    z-index: -1;
+}
+
+.wheels .leftWheel, .rightWheel {
+    position: absolute;
+    top: -20px;
+
+    height: 50px;
+    width: 55px;
+    background-color: black;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.wheels .rightWheel {
+    right: 0;
+}
+
+.carBody {
+    animation: rockCarBody 2s infinite linear;
+}
+
+.wheels .leftWheel {
+    animation: wheelsRocker .5s infinite linear
+}
+.wheels .rightWheel {
+    animation: wheelsRocker 1s infinite linear;
+
+}
+
+
+.buttons {
+  width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  margin: 100px auto;
+  
+}
+
+.buttons button {
+  cursor: pointer;
+  border-radius: 10px;
+  color: grey;
+  font-weight: bold;
+  padding: 10px;
+  border: 1px solid yellow;
+  background: transparent;
+  margin: 20px
+}
+
+
+
+/* KEYFRAMES */
+
+@keyframes rockCarBody {
+    0% {
+        transform: rotate(1deg);
+    }
+    50% {
+        transform: rotate(-1deg);
+    }
+    100% {
+        transform: rotate(1deg);
+    }
+
+}
+
+/* WHEELS KEYFRAMES */
+
+@keyframes wheelsRocker {
+    0% {
+        top: -20;
+    }
+    50% {
+        top: -15px;
+        
+    }
+    100% {
+        top: -20;
+    }
+
+}
+
+
+/* HEADLIGHTS KEYFRAMES */
+
+@keyframes headlightsFlicker {
+    0% {
+        
+      
+        
+  box-shadow: 2px 3px 100px 70px orange;
+  border-radius: 50%;
+  background-color: white;
+        
+        
+    }
+ 
+    50% {
+        background-color: transparent ;
+        box-shadow: none      
+    }
+
+    100% {
+        
+        
+  box-shadow: 2px 3px 100px 70px orange;
+  border-radius: 50%;
+  background-color: white;
+        
+      
+    }
+
+}
+
+
+/* SIREN KEYFRAMES */
+
+@keyframes leftSirenKeyframes {
+    0% {
+      background-color: white;
+      box-shadow: 0px 0px 200px 70px white;
+      
+    }
+ 
+    50% {
+        background: blue;
+        box-shadow: 0px 0px 200px 70px blue;
+    }
+
+    100% {
+        background-color: white;
+         box-shadow: 0px 0px 200px 70px white;
+    }
+
+}
+
+
+
+
+@keyframes rightSirenKeyframes {
+  
+    0% {
+      background: red;
+      box-shadow: 0px 0px 200px 70px red;
+      
+    }
+ 
+    50% {
+      
+      background-color: white;
+      box-shadow: 0px 0px 200px 70px white;
+        
+    }
+
+    100% {
+        background: red;
+        box-shadow: 0px 0px 200px 70px red;
+      
+    }
+
+}
